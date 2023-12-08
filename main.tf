@@ -1,7 +1,13 @@
 provider "aws" {
-    region = "ap-south-1"
+   region = "ap-south-1"
 }
-module name {
-  source = "./modules/name"
-  param  = value
+
+resource "aws_instance" "Anurag_instance" {
+  ami           = ami
+  instance_type = instance
+  subnet_id = subnet_id_value
+
+  tags = {
+    Name = "MyInstance"
+  }
 }
